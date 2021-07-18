@@ -28,8 +28,8 @@ class SCP:
         self.nuetralized = nuetralized
 
 scps = [
-    SCP("Here be dragons", "SCP-1234","Safe", "test description", True),
-    SCP("Shy Guy", "SCP-5432", "Euclid", "Test Description 2", False),
+    SCP("Here be dragons", 1234,"Safe", "test description", True),
+    SCP("Shy Guy", 4321, "Euclid", "Test Description 2", False),
 ]
 
 def home(request):
