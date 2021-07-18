@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>SCP List</h1>
+    {% for scp in scps%}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ scp.name }}</span>
+                <p>Breed: {{ scp.number }}</p>
+                <p>Description: {{ scp.class_type }}</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
