@@ -18,3 +18,17 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         return reverse('author_detail', kwargs={"author_id": self.id})
+
+class Sighting(models.Model):
+    SIGHTINGS = (
+        ("R", "Early Morning"),
+        ("M", "Midday"),
+        ("E", "Evening")
+    )
+    date = models.DateField()
+    sighting = models.CharField(max_length=1, choices = SIGHTINGS, default = SIGHTINGS[0][0])
+
+    scp = models.ForeignKey(SCP, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.get_sighting_display()} on {self.date}"
