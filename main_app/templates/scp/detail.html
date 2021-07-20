@@ -10,6 +10,10 @@
                     <p>Class Type: {{ scp.class_type }}</p>
                     <p>Description: {{ scp.description }}</p>
                 </div>
+                <div class="action">
+                    <a href="{% url 'scps_update' scp.id %}">Edit</a>
+                    <a href="{% url 'scps_delete' scp.id %}">Delete</a>
+                </div>
         </div>
 
 {% endblock %}
