@@ -8,8 +8,8 @@
                     <span class="card-title">{{ author.name }}</span>
                 </div>
                 <div class="action">
-                    <a href="{% url 'authors_update' author.id %}">Edit</a>
-                    <a href="{% url 'authors_delete' author.id %}">Delete</a>
+                    <a class="btn" href="{% url 'authors_update' author.id %}">Edit</a>
+                    <a class="btn" href="{% url 'authors_delete' author.id %}">Delete</a>
                 </div>
         </div>
 

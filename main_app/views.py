@@ -1,6 +1,8 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.shortcuts import redirect, render
 from .models import SCP, Author
+from .forms import SightingForm
 
 def home(request):
     return render(request, "home.html")
@@ -12,9 +14,21 @@ def scp_index(request):
     scps = SCP.objects.all()
     return render(request,"scp/index.html", {"scps": scps})
 
+def add_sighting(request, scp_id):
+    form = SightingForm(request.POST)
+    if form.is_valid():
+        new_sighting = form.save(commit=False)
+        new_sighting.scp_id = scp_id
+        new_sighting.save()
+    return redirect('detail', scp_id = scp_id)
+
 def scp_detail(request, scp_id):
     scp = SCP.objects.get(id=scp_id)
-    return render(request, "scp/detail.html", {"scp": scp})
+    sighting_form = SightingForm()
+    return render(request, "scp/detail.html", {
+        "scp": scp,
+        "sighting_form": sighting_form,
+    })
 
 class SCPCreate(CreateView):
     model = SCP

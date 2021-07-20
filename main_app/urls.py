@@ -5,6 +5,7 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name="about"),
     path("scp/", views.scp_index, name="index"),
+    path("scps/<int:scp_id>/add_sighting", views.add_sighting, name="add_sighting"),
     path("scp/<int:scp_id>/", views.scp_detail, name="detail"),
     path("scps/create/", views.SCPCreate.as_view(), name="scps_create"),
     path("scps/<int:pk>/update", views.SCPUpdate.as_view(), name="scps_update"),

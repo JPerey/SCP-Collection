@@ -20,6 +20,9 @@ class Author(models.Model):
         return reverse('author_detail', kwargs={"author_id": self.id})
 
 class Sighting(models.Model):
+    class Meta:
+        ordering = ["-date"]
+        
     SIGHTINGS = (
         ("R", "Early Morning"),
         ("M", "Midday"),
