@@ -2,18 +2,14 @@
 
 {% block content %}
 
-    <h1>SCP List</h1>
-    {% for scp in scps%}
+    <h1>SCP Details</h1>
         <div class="card">
-            <a href = "{% url 'detail' scp.id %}">
                 <div class="card-content">
                     <span class="card-title">{{ scp.name }}</span>
                     <p>SCP Number: {{ scp.number }}</p>
                     <p>Class Type: {{ scp.class_type }}</p>
+                    <p>Description: {{ scp.description }}</p>
                 </div>
-            </a>
         </div>
-
-    {% endfor %}
 
 {% endblock %}

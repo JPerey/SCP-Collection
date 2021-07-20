@@ -10,3 +10,7 @@ def about(request):
 def scp_index(request):
     scps = SCP.objects.all()
     return render(request,"scp/index.html", {"scps": scps})
+
+def scp_detail(request, scp_id):
+    scp = SCP.objects.get(id=scp_id)
+    return render(request, "scp/detail.html", {"scp": scp})
