@@ -24,10 +24,12 @@ def add_sighting(request, scp_id):
 
 def scp_detail(request, scp_id):
     scp = SCP.objects.get(id=scp_id)
+    authors_scp_doesnt_have = Author.objects.exclude(id__in = scp.authors.all().values_list("id"))
     sighting_form = SightingForm()
     return render(request, "scp/detail.html", {
         "scp": scp,
         "sighting_form": sighting_form,
+        "authors": authors_scp_doesnt_have,
     })
 
 class SCPCreate(CreateView):
