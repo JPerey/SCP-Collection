@@ -74,7 +74,7 @@
                 </span>
             </div>
             <div class="card-action">
-                <form action="" method="POST">
+                <form action="{% url 'assoc_author' scp.id author.id %}" method="POST">
                     {% csrf_token %}
                     <button class="btn" type="submit">Add</button>
                 </form>

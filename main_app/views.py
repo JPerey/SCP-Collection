@@ -22,6 +22,10 @@ def add_sighting(request, scp_id):
         new_sighting.save()
     return redirect('detail', scp_id = scp_id)
 
+def assoc_author(request, scp_id, author_id):
+    SCP.objects.get(id=scp_id).authors.add(author_id)
+    return redirect("detail", scp_id = scp_id)
+
 def scp_detail(request, scp_id):
     scp = SCP.objects.get(id=scp_id)
     authors_scp_doesnt_have = Author.objects.exclude(id__in = scp.authors.all().values_list("id"))
